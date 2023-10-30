@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            <%= title%>
+        </title>
+        <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" />
+        
+        <link rel="stylesheet" href="/CSS/home.css">
+    </head>
+    <body>
+        <div id="addToList">
+
+            <h2><i class="fas fa-tasks" aria-hidden="true"></i>Task Manager</h2>
+            <form action="/create_task" method="post">
+                <table id="frm">
+                    <tr>
+                        <td>
+                            Task
+                        </td>
+                        <td>
+                            <input type="text" name="task" placeholder="Enter the Task" required><br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Details
+                        </td>
+                        <td>
+                            <textarea id="details" name="taskdetail" placeholder="Details of task"></textarea><br></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Start Date
+                        </td>
+                        <td>
+                            <input type="date" name="startdate" required><br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Deadline
+                        </td>
+                        <td>
+                            <input type="date" name="deadline" required><br>
+                        </td>
+                    </tr>
+                </table>
+                <button type="submit" >Add Task</button>
+            </form>
+        </div>
+        <div id="heads">
+            <h3 class="heading">Queued Tasks</h3>
+            <h3 class="heading"><i class="fas fa-tasks"></i> Running Task</h3>
+            <h3 class="heading"><i class="fas fa-tasks"></i> Completed Task</h3>
+        </div>
+        
+        <div id="print">
+           
+            <div id="ToDo">
+                <%for(let i of tasks){%>
+                    <% if(i.sd==0){%>
+                        <div class="card">
+                            <div class="tdetiails">
+                                <span class="name">
+                                    <%=i.task%>
+                                </span>
+                                <span class="detais">
+                                    <%=i.taskdetail%>
+                                </span>
+                                <div class="date-time">
+                                 <span class="start-date">
+                                    
+                                    <%= moment(i.startdate).format('dddd,DD-MM-YYYY') %>
+                                    
+                                </span>
+                                <span class="end-date">
+                                    <%= moment(i.deadline).format('dddd,DD-MM-YYYY')%>
+                                </span>
+                                </div>
+                            </div>
+                            <span class="addtorunnig"><a href="/add_runnning/?id=<%=i._id%>"><i class="fas fa-plus-circle" aria-hidden="true"></i></a></span>
+                          </div>  
+                    <%}%>
+                      
+                <%}%>
+            </div>
+            <div id="doing">
+                
+                <%for(let i of tasks){%>
+                    <% if(i.sd==1){%>
+                        <div class="card">
+                            <div class="tdetiails">
+                                <span class="name">
+                                    <%=i.task%>
+                                </span>
+                                <span class="detais">
+                                    <%=i.taskdetail%>
+                                </span>
+                                <div class="date-time">
+                                    <span class="start-date">
+                                    
+                                        <%= moment(i.startdate).format('dddd,DD-MM-YYYY') %>
+                                        
+                                    </span>
+                                    <span class="end-date">
+                                        <%= moment(i.deadline).format('dddd,DD-MM-YYYY')%>
+                                    </span>
+                                </div>
+                            </div>
+                            <span class="addtorunnig"><a href="/add_completed/?id=<%=i._id%>"><i class="fas fa-plus-circle" aria-hidden="true"></i></a></span>
+                          </div>    
+                    <%}%>
+              <%}%>
+            </div>
+            <div id="completed">
+                
+                <%for(let i of tasks){%>
+                    <% if(i.sd==2){%>
+                        <div class="card">
+                            <div class="tdetiails">
+                                <span class="name">
+                                    <%=i.task%>
+                                </span>
+                                <span class="detais">
+                                    <%=i.taskdetail%>
+                                </span>
+                                <div class="date-time">
+                                    <span class="start-date">
+                                        <%= moment(i.startdate).format('dddd,DD-MM-YYYY') %>
+                                    </span>
+                                    <span class="end-date">
+                                        <%= moment(i.deadline).format('dddd,DD-MM-YYYY')%>
+                                    </span>
+                                </div>
+                            </div>
+                            <span class="addtorunnig"><a href="/delete_task/?id=<%=i._id%>"><i class="fas fa fa-trash" aria-hidden="true"></i></a></i></span>
+                          </div>  
+                    <%}%>
+              <%}%>
+            </div>
+        </div>
+        <div id="contact-details">
+
+        </div>
+        </body>
+    </body>
+</html>

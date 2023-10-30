@@ -1,0 +1,91 @@
+#addToList{
+    background-image: linear-gradient(60deg,pink,orange);
+}
+#addToList{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1rem;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 700;
+}
+#addToList input,textarea{
+    width: 20rem;
+    font-size: 1rem;
+    max-width: 20rem;
+    margin-left: 1.5rem;
+    height: 2rem;
+    border: 0px solid transparent;
+    border-bottom: 1px solid white;
+    background-color: rgb(219, 248, 248);
+}
+textarea::-webkit-scrollbar {
+    display: none;
+}
+#frm tr{
+    justify-content: center;
+}
+#addToList button{
+    height: 2rem;
+    width: 9rem;
+    font: icon;
+    font-weight: 700;
+    border: 1px solid black;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    background-color: rgb(241, 188, 229);
+}
+#print{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: flex-start;
+}
+#ToDo,#doing,#completed{
+    width: 32%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    
+    margin-left:1rem;
+
+}
+.tdetiails{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    
+   
+}
+.card{
+    font-size: 1.3rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    background-image: linear-gradient(45deg,rgb(191, 241, 239),rgb(223, 240, 166));
+}
+.start-date{
+    display: block;
+}
+.addtorunnig{
+    cursor: pointer;
+}
+.heading{
+    position: top;
+}
+.heading{
+    width: 32%;
+    margin-left: 5rem;
+    height: auto;
+}
+#heads{
+    width: 100%;
+    display: flex;
+}
